@@ -1,0 +1,24 @@
+🚀 Excited to share my latest project: A Real-Time Handwritten Character Recognition App! ✍️
+
+I built an interactive web application that can recognize 62 different characters (0-9, A-Z, a-z) with ~83% accuracy. It's powered by Deep Learning and built for a seamless user experience.
+
+🛠️ Technical Highlights:
+🔹 Model: Convolutional Neural Network (CNN) built with TensorFlow/Keras.
+🔹 Dataset: EMNIST ByClass (over 800k samples).
+🔹 Frontend: Streamlit for a fast, responsive UI.
+🔹 Interactivity: Streamlit-drawable-canvas for real-time sketching.
+
+The app doesn't just give a "Best Guess"—it provides a full probability distribution, showing the model's confidence across the top 5 most likely candidates. This helps visualize how the model distinguishes between similar-looking characters like 'O', 'o', and '0'.
+
+Developing this was a great deep dive into:
+✅ Image preprocessing for neural networks.
+✅ Handling imbalanced datasets in multi-class classification.
+✅ Deploying ML models into interactive web environments.
+
+Check out the code here: [Insert GitHub Link]
+
+#MachineLearning #DeepLearning #Python #Streamlit #TensorFlow #ComputerVision #EMNIST #AI #DataScience
+
+---
+Note: This post is designed to showcase both the engineering effort and the visual results of the project.
+---
