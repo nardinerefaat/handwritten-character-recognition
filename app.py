@@ -53,13 +53,15 @@ st.markdown("""
 
 @st.cache_resource
 def load_trained_model(path: str = "model2.keras"):
-    return load_model(path)
+    return load_model(path ,  compile=False)
 
 @st.cache_data
 def get_character_classes():
     return list(string.digits) + list(string.ascii_uppercase) + list(string.ascii_lowercase)
 
 model = load_trained_model()
+# model = model.save("model.h5")
+
 classes = get_character_classes()
 
 bg_color = "#000000"
