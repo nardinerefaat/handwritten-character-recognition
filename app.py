@@ -62,7 +62,7 @@ from tensorflow.keras.models import load_model
 import traceback
 
 @st.cache_resource
-def load_trained_model(path="model.h5"):
+def load_trained_model(path="model2.h5"):
     try:
         return load_model(path, compile=False)
     except Exception as e:
