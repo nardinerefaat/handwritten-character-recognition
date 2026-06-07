@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 from tensorflow.keras.models import load_model
 
+
 st.set_page_config(
     page_title="Character Recognition",
     page_icon="✍️",
@@ -51,17 +52,18 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-@st.cache_resource
-def load_trained_model(path: str = "model2.keras"):
-    return load_model(path ,  compile=False)
+# @st.cache_resource
+def load_trained_model(path: str = "modelkeras.keras"):
+    return load_model(path , compile=False)
 
 @st.cache_data
 def get_character_classes():
     return list(string.digits) + list(string.ascii_uppercase) + list(string.ascii_lowercase)
 
-model = load_trained_model()
-# model = model.save("model.h5")
+# import h5py
 
+model = load_trained_model()
+# model = h5py.File("model.h5", "r")
 classes = get_character_classes()
 
 bg_color = "#000000"
