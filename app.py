@@ -52,10 +52,15 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# @st.cache_resource
-def load_trained_model(path: str = "model2.h5"):
-    return load_model(path , compile=False)
-
+@st.cache_resource
+def load_trained_model(path="model.h5"):
+    try:
+        return load_model(path, compile=False)
+    except Exception as e:
+        import traceback
+        st.error(f"Error type: {type(e).__name__}")
+        st.code(traceback.format_exc())
+        raise
 @st.cache_data
 def get_character_classes():
     return list(string.digits) + list(string.ascii_uppercase) + list(string.ascii_lowercase)
