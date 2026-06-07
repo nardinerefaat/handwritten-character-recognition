@@ -5,8 +5,11 @@ from PIL import Image
 import numpy as np
 import pandas as pd
 from tensorflow.keras.models import load_model
+import tensorflow as tf
+from tensorflow import keras
 
-
+st.write("TF:", tf.__version__)
+st.write("Keras:", keras.__version__)
 st.set_page_config(
     page_title="Character Recognition",
     page_icon="✍️",
@@ -52,9 +55,19 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-@st.cache_resource
-def load_trained_model(path: str = "model2.h5"):
-    return load_model(path , compile=False)
+# @st.cache_resource
+# def load_trained_model(path: str = "model2.h5"):
+#     return load_model(path , compile=False)
+
+import traceback
+from keras.models import load_model
+
+try:
+    model = load_model("model2.keras", compile=False)
+except Exception as e:
+    st.error(str(e))
+    st.code(traceback.format_exc())
+    raise
 
 @st.cache_data
 def get_character_classes():
@@ -62,7 +75,7 @@ def get_character_classes():
 
 # import h5py
 
-model = load_trained_model()
+# model = load_trained_model()
 # model = h5py.File("model.h5", "r")
 classes = get_character_classes()
 
