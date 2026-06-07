@@ -8,8 +8,6 @@ from tensorflow.keras.models import load_model
 import tensorflow as tf
 from tensorflow import keras
 
-st.write("TF:", tf.__version__)
-st.write("Keras:", keras.__version__)
 st.set_page_config(
     page_title="Character Recognition",
     page_icon="✍️",
@@ -59,22 +57,19 @@ st.markdown("""
 # def load_trained_model(path: str = "model2.h5"):
 #     return load_model(path , compile=False)
 
+ 
+from tensorflow.keras.models import load_model
 import traceback
-from keras.models import load_model
 
 @st.cache_resource
 def load_trained_model(path="model.h5"):
     try:
         return load_model(path, compile=False)
     except Exception as e:
-        import traceback
-
-        st.text(f"Error type: {type(e).__name__}")
-        st.text(str(e))
+        st.error(f"Error type: {type(e).__name__}")
+        st.error(str(e))
         st.code(traceback.format_exc())
-
         raise
-    
 @st.cache_data
 def get_character_classes():
     return list(string.digits) + list(string.ascii_uppercase) + list(string.ascii_lowercase)
