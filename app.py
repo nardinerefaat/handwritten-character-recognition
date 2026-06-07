@@ -53,7 +53,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # @st.cache_resource
-def load_trained_model(path: str = "modelkeras.keras"):
+def load_trained_model(path: str = "model2.h5"):
     return load_model(path , compile=False)
 
 @st.cache_data
