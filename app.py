@@ -76,7 +76,7 @@ def get_character_classes():
 
 # import h5py
 
-# model = load_trained_model()
+model = load_trained_model()
 # model = h5py.File("model.h5", "r")
 classes = get_character_classes()
 
